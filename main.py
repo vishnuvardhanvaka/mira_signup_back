@@ -1,26 +1,14 @@
-import uvicorn
-from fastapi import FastAPI
-
-app = FastAPI()
-
-@app.get("/")
-async def root():
-    return {"message": "Hello from FastAPI!"}
-
-if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
-
-# from asyncio import run
-# from fastapi import Depends, FastAPI, HTTPException, status,Form,Response,Request
-# from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-# from fastapi.middleware.cors import CORSMiddleware
-# from pydantic import BaseModel
-# from datetime import datetime,timedelta
-# from jose import JWTError,jwt
-# from passlib.context import CryptContext
-# from database import Database
-# from security import *
-# from sendMail import Mail
+from asyncio import run
+from fastapi import Depends, FastAPI, HTTPException, status,Form,Response,Request
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+from datetime import datetime,timedelta
+from jose import JWTError,jwt
+from passlib.context import CryptContext
+from database import Database
+from security import *
+from sendMail import Mail
 
 # db=Database()
 # # mail=Mail()
@@ -111,6 +99,16 @@ if __name__ == "__main__":
 #             headers={'WWW-Authenticate':'Bearer'}
 #         )
 #     return otp
+import uvicorn
+from fastapi import FastAPI
 
+app = FastAPI()
+
+@app.get("/")
+async def root():
+    return {"message": "Hello from FastAPI!"}
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
 
 
