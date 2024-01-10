@@ -6,7 +6,7 @@ from pydantic import BaseModel
 from passlib.context import CryptContext
 from pymongo import MongoClient
 import os
-# from database import Database
+from database import Database
 # from security import *
 from sendMail import Mail
 # import smtplib
@@ -18,16 +18,13 @@ from dotenv import load_dotenv
 # import random
 
 import uvicorn
-load_dotenv()
-cu=os.environ.get(f'MONGODB_URI')
-connection_url='mongodb+srv://vercel-admin-user:9fUSJGXbLKGD5jqZ@miraparentpal.ipmapar.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-print(connection_url)
-client=MongoClient(cu)
+# load_dotenv()
+# cu=os.environ.get(f'MONGODB_URI')
 # print('Client connection successful !')
 # database=client.babycare
 # login_collection=database.logins
 # user_collection=database.userdata
-print('Successfully connected to the database !')
+# print('Successfully connected to the database !')
 
 
 # db=Database()
@@ -126,7 +123,7 @@ app = FastAPI()
 async def root():
     mail=Mail()
     otp,msg=mail.sendOTP('vishnu','vishnuvardhanvaka1@gmail.com')
-    return {"message": f"Hello from FastAPI!str({otp}),str({msg}),client:{cu}"}
+    return {"message": f"Hello from FastAPI!str({otp}),str({msg})"}
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
