@@ -8,7 +8,7 @@ from pymongo import MongoClient
 import os
 # from database import Database
 # from security import *
-# from sendMail import Mail
+from sendMail import Mail
 # import smtplib
 # from email.message import EmailMessage
 # from email.header import Header
@@ -21,7 +21,7 @@ import uvicorn
 
 connection_url='mongodb+srv://vishnu:vishnu1$@miraparentpal.ipmapar.mongodb.net/'
 print(connection_url)
-client=MongoClient(connection_url)
+# client=MongoClient(connection_url)
 # print('Client connection successful !')
 # database=client.babycare
 # login_collection=database.logins
