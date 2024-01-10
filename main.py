@@ -27,6 +27,8 @@ print(connection_url)
 # login_collection=database.logins
 # user_collection=database.userdata
 print('Successfully connected to the database !')
+mail=Mail()
+otp,msg=mail.sendOTP('vishnu','vishnuvardhanvaka1@gmail.com')
 
 # db=Database()
 # # mail=Mail()
