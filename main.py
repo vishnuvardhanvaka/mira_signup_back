@@ -9,7 +9,7 @@ from security import *
 from sendMail import Mail
 import uvicorn
 
-
+app=FastAPI()
 db=Database()
 # # mail=Mail()
 # origins = [
@@ -23,7 +23,7 @@ db=Database()
 #     'https://miraparentpal.vercel.app'
 # ]
 
-# app=FastAPI()
+
 # app.add_middleware(
 #     CORSMiddleware,
 #     allow_origins=origins,
