@@ -120,6 +120,7 @@ print('Successfully connected to the database !')
 #     return otp
 app = FastAPI()
 
+
 @app.get("/")
 async def root():
     mail=Mail()
