@@ -6,3 +6,4 @@ fastapi==0.108.0
 passlib==1.7.4
 python_jose==3.3.0
 uvicorn
+python-multipart
