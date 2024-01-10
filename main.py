@@ -101,9 +101,7 @@ async def getOTP(request:Request,username:str = Form(...),email:str = Form(...))
 
 @app.get("/")
 async def root():
-    mail=Mail()
-    otp,msg=mail.sendOTP('vishnu','vishnuvardhanvaka1@gmail.com')
-    return {"message": f"Hello from FastAPI!str({otp}),str({msg},{db})"}
+    return {"message": f"Hello from mira brain"}
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
