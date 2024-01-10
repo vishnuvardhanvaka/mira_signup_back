@@ -12,36 +12,36 @@ import uvicorn
 app=FastAPI()
 db=Database()
 # # mail=Mail()
-# origins = [
-#     "http://localhost.tiangolo.com",
-#     "https://localhost.tiangolo.com",
-#     "http://localhost:3000",
-#     "http://localhost:3000/",
-#     "http://192.168.0.128:3000/",
-#     "https://miraparentpal.com",
-#     "https://www.miraparentpal.com",
-#     'https://miraparentpal.vercel.app'
-# ]
+origins = [
+    "http://localhost.tiangolo.com",
+    "https://localhost.tiangolo.com",
+    "http://localhost:3000",
+    "http://localhost:3000/",
+    "http://192.168.0.128:3000/",
+    "https://miraparentpal.com",
+    "https://www.miraparentpal.com",
+    'https://miraparentpal.vercel.app'
+]
 
 
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=origins,
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-# # db={
-# #     'vishnu@gmail.com':{
-# #         'username':'vishnu',
-# #         'full_name':'vishnu vardhan gowd',
-# #         'email':'vishnu@gmail.com',
-# #         'password':'$2b$12$1wWBGtrpd.I97eZYVyjG4ukcQTaszhV3Azmz4S5MGXo2ZJfqSxClm',
-# #         'disabled':False,
-# #         'invalid_entries':0
-# #     }
-# # }
+# db={
+#     'vishnu@gmail.com':{
+#         'username':'vishnu',
+#         'full_name':'vishnu vardhan gowd',
+#         'email':'vishnu@gmail.com',
+#         'password':'$2b$12$1wWBGtrpd.I97eZYVyjG4ukcQTaszhV3Azmz4S5MGXo2ZJfqSxClm',
+#         'disabled':False,
+#         'invalid_entries':0
+#     }
+# }
 # class FormData(BaseModel):
 #     username:str = Form(...)
 #     email:str = Form(...)
