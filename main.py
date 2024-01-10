@@ -10,12 +10,12 @@ import os
 # from security import *
 # from sendMail import Mail
 import smtplib
-from email.message import EmailMessage
-from email.header import Header
-import ssl
-from dotenv import load_dotenv
-import os
-import random
+# from email.message import EmailMessage
+# from email.header import Header
+# import ssl
+# from dotenv import load_dotenv
+# import os
+# import random
 
 import uvicorn
 from fastapi import FastAPI
