@@ -59,7 +59,7 @@ The Mira Team _V
 
         context=ssl.create_default_context()
         try:
-            with smtplib.SMTP_SSL('smtp.gmail.com',587,context=context) as smtp:
+            with smtplib.SMTP_SSL('smtp.gmail.com',465,context=context) as smtp:
                 smtp.login(self.sender,self.password)
                 smtp.sendmail(self.sender,receiver,self.em.as_string())
             return otp,'ok'
