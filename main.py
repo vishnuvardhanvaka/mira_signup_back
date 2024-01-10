@@ -4,6 +4,8 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from passlib.context import CryptContext
+from pymongo import MongoClient
+import os
 # from database import Database
 # from security import *
 # from sendMail import Mail
@@ -13,7 +15,7 @@ from fastapi import FastAPI
 
 connection_url='mongodb+srv://vishnu:vishnu1$@miraparentpal.ipmapar.mongodb.net/'
 # print(connection_url)
-# client=MongoClient(connection_url)
+client=MongoClient(connection_url)
 # #print('Client connection successful !')
 # database=client.babycare
 # login_collection=database.logins
