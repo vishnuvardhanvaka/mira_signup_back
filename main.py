@@ -7,7 +7,7 @@ from passlib.context import CryptContext
 from pymongo import MongoClient
 import os
 # from database import Database
-from security import *
+# from security import *
 from sendMail import Mail
 # import smtplib
 # from email.message import EmailMessage
