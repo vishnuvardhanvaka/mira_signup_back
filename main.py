@@ -12,91 +12,91 @@ import uvicorn
 
 db=Database()
 # # mail=Mail()
-origins = [
-    "http://localhost.tiangolo.com",
-    "https://localhost.tiangolo.com",
-    "http://localhost:3000",
-    "http://localhost:3000/",
-    "http://192.168.0.128:3000/",
-    "https://miraparentpal.com",
-    "https://www.miraparentpal.com",
-    'https://miraparentpal.vercel.app'
-]
+# origins = [
+#     "http://localhost.tiangolo.com",
+#     "https://localhost.tiangolo.com",
+#     "http://localhost:3000",
+#     "http://localhost:3000/",
+#     "http://192.168.0.128:3000/",
+#     "https://miraparentpal.com",
+#     "https://www.miraparentpal.com",
+#     'https://miraparentpal.vercel.app'
+# ]
 
-app=FastAPI()
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# app=FastAPI()
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=origins,
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
-# db={
-#     'vishnu@gmail.com':{
-#         'username':'vishnu',
-#         'full_name':'vishnu vardhan gowd',
-#         'email':'vishnu@gmail.com',
-#         'password':'$2b$12$1wWBGtrpd.I97eZYVyjG4ukcQTaszhV3Azmz4S5MGXo2ZJfqSxClm',
-#         'disabled':False,
-#         'invalid_entries':0
-#     }
-# }
-class FormData(BaseModel):
-    username:str = Form(...)
-    email:str = Form(...)
-    password:str = Form(...)
+# # db={
+# #     'vishnu@gmail.com':{
+# #         'username':'vishnu',
+# #         'full_name':'vishnu vardhan gowd',
+# #         'email':'vishnu@gmail.com',
+# #         'password':'$2b$12$1wWBGtrpd.I97eZYVyjG4ukcQTaszhV3Azmz4S5MGXo2ZJfqSxClm',
+# #         'disabled':False,
+# #         'invalid_entries':0
+# #     }
+# # }
+# class FormData(BaseModel):
+#     username:str = Form(...)
+#     email:str = Form(...)
+#     password:str = Form(...)
 
-class Token(BaseModel):
-    access_token:str
-    email:str
-    username:str
-class TokenData(BaseModel):
-    email:str or None = None
+# class Token(BaseModel):
+#     access_token:str
+#     email:str
+#     username:str
+# class TokenData(BaseModel):
+#     email:str or None = None
 
-class User(BaseModel):
-    username:str
-    email:str or None=None
-    full_name:str or None=None
-    disabled:bool or None=None
-    invalid_entries:int or None=None
-class UserInDB(User):
-    password:str
+# class User(BaseModel):
+#     username:str
+#     email:str or None=None
+#     full_name:str or None=None
+#     disabled:bool or None=None
+#     invalid_entries:int or None=None
+# class UserInDB(User):
+#     password:str
 
 
-@app.post('/auth/signup/')
-async def signup(request : Request):
+# @app.post('/auth/signup/')
+# async def signup(request : Request):
     
-    payload = await request.form()
-    payload=dict(payload)
-    payload['password']=get_password_hash(payload['password'])
-    user_details=payload
-    # user_details={
-    #     'username':username,
-    #     'email':email,
-    #     'password':get_password_hash(password)
-    # }
-    state=db.insert_user(user_details)
-    return state
-@app.post('/sendOTP/')
-async def getOTP(request:Request,username:str = Form(...),email:str = Form(...)):
-    user=db.get_user(email)
-    if user:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail='User already exists. ',
-            headers={'WWW-Authenticate':'Bearer'}
-        )
-    mail=Mail()
-    otp,msg=mail.sendOTP(username,email)
-    print(otp,msg)
-    if otp==None:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail=f'{msg}',
-            headers={'WWW-Authenticate':'Bearer'}
-        )
-    return otp
+#     payload = await request.form()
+#     payload=dict(payload)
+#     payload['password']=get_password_hash(payload['password'])
+#     user_details=payload
+#     # user_details={
+#     #     'username':username,
+#     #     'email':email,
+#     #     'password':get_password_hash(password)
+#     # }
+#     state=db.insert_user(user_details)
+#     return state
+# @app.post('/sendOTP/')
+# async def getOTP(request:Request,username:str = Form(...),email:str = Form(...)):
+#     user=db.get_user(email)
+#     if user:
+#         raise HTTPException(
+#             status_code=status.HTTP_401_UNAUTHORIZED,
+#             detail='User already exists. ',
+#             headers={'WWW-Authenticate':'Bearer'}
+#         )
+#     mail=Mail()
+#     otp,msg=mail.sendOTP(username,email)
+#     print(otp,msg)
+#     if otp==None:
+#         raise HTTPException(
+#             status_code=status.HTTP_401_UNAUTHORIZED,
+#             detail=f'{msg}',
+#             headers={'WWW-Authenticate':'Bearer'}
+#         )
+#     return otp
 
 
 @app.get("/")
