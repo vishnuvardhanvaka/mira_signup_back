@@ -21,7 +21,7 @@ import uvicorn
 
 connection_url='mongodb+srv://vishnu:vishnu1$@miraparentpal.ipmapar.mongodb.net/'
 print(connection_url)
-# client=MongoClient(connection_url)
+client=MongoClient(connection_url)
 # print('Client connection successful !')
 # database=client.babycare
 # login_collection=database.logins
