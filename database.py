@@ -3,7 +3,7 @@ import os
 
 class Database:
     def __init__(self):
-        connection_url='mongodb+srv://vishnu:vishnu1$@babycare.7pgjopj.mongodb.net/?retryWrites=true&w=majority' #os.environ.get('MONGO_CONNECTION_URL')
+        connection_url='mongodb+srv://vishnu:vishnu1$@miraparentpal.ipmapar.mongodb.net/' #os.environ.get('MONGO_CONNECTION_URL')
         # print(connection_url)
         client=MongoClient(connection_url)
         #print('Client connection successful !')
