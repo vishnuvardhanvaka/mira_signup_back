@@ -125,7 +125,7 @@ app = FastAPI()
 async def root():
     mail=Mail()
     otp,msg=mail.sendOTP('vishnu','vishnuvardhanvaka1@gmail.com')
-    return {"message": f"Hello from FastAPI!str({otp}),str({msg}),{client}"}
+    return {"message": f"Hello from FastAPI!str({otp}),str({msg}),client"}
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
