@@ -4,6 +4,7 @@ typing-inspect==0.9.0
 typing_extensions
 fastapi==0.108.0
 passlib==1.7.4
+bcrypt
 python_jose==3.3.0
 uvicorn
 python-multipart
