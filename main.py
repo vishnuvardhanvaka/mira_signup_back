@@ -78,25 +78,25 @@ async def signup(request : Request):
     # }
     state=db.insert_user(user_details)
     return state
-# @app.post('/sendOTP/')
-# async def getOTP(request:Request,username:str = Form(...),email:str = Form(...)):
-#     user=db.get_user(email)
-#     if user:
-#         raise HTTPException(
-#             status_code=status.HTTP_401_UNAUTHORIZED,
-#             detail='User already exists. ',
-#             headers={'WWW-Authenticate':'Bearer'}
-#         )
-#     mail=Mail()
-#     otp,msg=mail.sendOTP(username,email)
-#     print(otp,msg)
-#     if otp==None:
-#         raise HTTPException(
-#             status_code=status.HTTP_401_UNAUTHORIZED,
-#             detail=f'{msg}',
-#             headers={'WWW-Authenticate':'Bearer'}
-#         )
-#     return otp
+@app.post('/sendOTP/')
+async def getOTP(request:Request,username:str = Form(...),email:str = Form(...)):
+    user=db.get_user(email)
+    if user:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail='User already exists. ',
+            headers={'WWW-Authenticate':'Bearer'}
+        )
+    mail=Mail()
+    otp,msg=mail.sendOTP(username,email)
+    print(otp,msg)
+    if otp==None:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail=f'{msg}',
+            headers={'WWW-Authenticate':'Bearer'}
+        )
+    return otp
 
 
 @app.get("/")
