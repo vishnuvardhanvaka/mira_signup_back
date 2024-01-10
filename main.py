@@ -13,7 +13,7 @@ from sendMail import Mail
 # from email.message import EmailMessage
 # from email.header import Header
 # import ssl
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 # import os
 # import random
 
@@ -21,7 +21,7 @@ import uvicorn
 
 connection_url='mongodb+srv://vercel-admin-user:9fUSJGXbLKGD5jqZ@miraparentpal.ipmapar.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 print(connection_url)
-client=MongoClient(connection_url)s
+client=MongoClient(connection_url)
 # print('Client connection successful !')
 # database=client.babycare
 # login_collection=database.logins
