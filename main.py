@@ -5,11 +5,20 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from passlib.context import CryptContext
 # from database import Database
-from security import *
+# from security import *
 # from sendMail import Mail
 
 import uvicorn
 from fastapi import FastAPI
+
+connection_url='mongodb+srv://vishnu:vishnu1$@babycare.7pgjopj.mongodb.net/?retryWrites=true&w=majority' #os.environ.get('MONGO_CONNECTION_URL')
+# print(connection_url)
+client=MongoClient(connection_url)
+#print('Client connection successful !')
+database=client.babycare
+login_collection=database.logins
+user_collection=database.userdata
+print('Successfully connected to the database !')
 
 # db=Database()
 # # mail=Mail()
