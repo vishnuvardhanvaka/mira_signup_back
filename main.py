@@ -19,7 +19,7 @@ from sendMail import Mail
 
 import uvicorn
 
-connection_url='mongodb+srv://vishnu:vishnu1$@miraparentpal.ipmapar.mongodb.net/'
+connection_url='mongodb+srv://vercel-admin-user:9fUSJGXbLKGD5jqZ@miraparentpal.ipmapar.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 print(connection_url)
 # client=MongoClient(connection_url)
 # print('Client connection successful !')
