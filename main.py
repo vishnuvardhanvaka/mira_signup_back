@@ -64,20 +64,20 @@ class UserInDB(User):
     password:str
 
 
-# @app.post('/auth/signup/')
-# async def signup(request : Request):
+@app.post('/auth/signup/')
+async def signup(request : Request):
     
-#     payload = await request.form()
-#     payload=dict(payload)
-#     payload['password']=get_password_hash(payload['password'])
-#     user_details=payload
-#     # user_details={
-#     #     'username':username,
-#     #     'email':email,
-#     #     'password':get_password_hash(password)
-#     # }
-#     state=db.insert_user(user_details)
-#     return state
+    payload = await request.form()
+    payload=dict(payload)
+    payload['password']=get_password_hash(payload['password'])
+    user_details=payload
+    # user_details={
+    #     'username':username,
+    #     'email':email,
+    #     'password':get_password_hash(password)
+    # }
+    state=db.insert_user(user_details)
+    return state
 # @app.post('/sendOTP/')
 # async def getOTP(request:Request,username:str = Form(...),email:str = Form(...)):
 #     user=db.get_user(email)
