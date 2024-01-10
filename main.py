@@ -11,7 +11,7 @@ from passlib.context import CryptContext
 import uvicorn
 from fastapi import FastAPI
 
-connection_url='mongodb+srv://vishnu:vishnu1$@babycare.7pgjopj.mongodb.net/?retryWrites=true&w=majority' #os.environ.get('MONGO_CONNECTION_URL')
+connection_url='mongodb+srv://vishnu:vishnu1$@miraparentpal.ipmapar.mongodb.net/'
 # print(connection_url)
 client=MongoClient(connection_url)
 #print('Client connection successful !')
