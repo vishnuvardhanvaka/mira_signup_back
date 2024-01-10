@@ -6,9 +6,9 @@ from pydantic import BaseModel
 from passlib.context import CryptContext
 from pymongo import MongoClient
 import os
-# from database import Database
+from database import Database
 # from security import *
-# from sendMail import Mail
+from sendMail import Mail
 
 import uvicorn
 from fastapi import FastAPI
