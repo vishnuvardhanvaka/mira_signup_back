@@ -64,7 +64,7 @@ The Mira Team _V
                 smtp.sendmail(self.sender,receiver,self.em.as_string())
             return otp,'ok'
         except Exception as e:
-            return None,str(e)+str(self.sender)+self.password+self.em
+            return None,str(e)+str(self.sender)+str(self.password)+str(self.em)
     
     def sendPassword(self,username,receiver,password):
         
