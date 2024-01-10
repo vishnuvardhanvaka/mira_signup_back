@@ -7,7 +7,7 @@ from passlib.context import CryptContext
 from pymongo import MongoClient
 import os
 # from database import Database
-# from security import *
+from security import *
 from sendMail import Mail
 # import smtplib
 # from email.message import EmailMessage
@@ -27,8 +27,7 @@ print(connection_url)
 # login_collection=database.logins
 # user_collection=database.userdata
 print('Successfully connected to the database !')
-mail=Mail()
-otp,msg=mail.sendOTP('vishnu','vishnuvardhanvaka1@gmail.com')
+
 
 # db=Database()
 # # mail=Mail()
@@ -123,7 +122,9 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"message": "Hello from FastAPI!"}
+    mail=Mail()
+    otp,msg=mail.sendOTP('vishnu','vishnuvardhanvaka1@gmail.com')
+    return {"message": f"Hello from FastAPI!{otp},{msg}"}
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
