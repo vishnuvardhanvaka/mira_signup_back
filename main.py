@@ -3,12 +3,13 @@ from fastapi import Depends, FastAPI, HTTPException, status,Form,Response,Reques
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from datetime import datetime,timedelta
-from jose import JWTError,jwt
 from passlib.context import CryptContext
-from database import Database
-from security import *
-from sendMail import Mail
+# from database import Database
+# from security import *
+# from sendMail import Mail
+
+import uvicorn
+from fastapi import FastAPI
 
 # db=Database()
 # # mail=Mail()
@@ -99,9 +100,6 @@ from sendMail import Mail
 #             headers={'WWW-Authenticate':'Bearer'}
 #         )
 #     return otp
-import uvicorn
-from fastapi import FastAPI
-
 app = FastAPI()
 
 @app.get("/")
