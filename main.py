@@ -16,7 +16,6 @@ import ssl
 from dotenv import load_dotenv
 import os
 import random
-from database import Database
 
 import uvicorn
 from fastapi import FastAPI
