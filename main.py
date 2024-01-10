@@ -42,26 +42,26 @@ app.add_middleware(
 #         'invalid_entries':0
 #     }
 # }
-# class FormData(BaseModel):
-#     username:str = Form(...)
-#     email:str = Form(...)
-#     password:str = Form(...)
+class FormData(BaseModel):
+    username:str = Form(...)
+    email:str = Form(...)
+    password:str = Form(...)
 
-# class Token(BaseModel):
-#     access_token:str
-#     email:str
-#     username:str
-# class TokenData(BaseModel):
-#     email:str or None = None
+class Token(BaseModel):
+    access_token:str
+    email:str
+    username:str
+class TokenData(BaseModel):
+    email:str or None = None
 
-# class User(BaseModel):
-#     username:str
-#     email:str or None=None
-#     full_name:str or None=None
-#     disabled:bool or None=None
-#     invalid_entries:int or None=None
-# class UserInDB(User):
-#     password:str
+class User(BaseModel):
+    username:str
+    email:str or None=None
+    full_name:str or None=None
+    disabled:bool or None=None
+    invalid_entries:int or None=None
+class UserInDB(User):
+    password:str
 
 
 # @app.post('/auth/signup/')
